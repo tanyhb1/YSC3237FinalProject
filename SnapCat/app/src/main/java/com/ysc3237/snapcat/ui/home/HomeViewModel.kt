@@ -1,13 +1,13 @@
-package com.ysc3237.snapcat.ui.add
+package com.ysc3237.snapcat.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AddViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Add Fragment"
+        value = "This is Home Fragment"
     }
     val text: LiveData<String> = _text
 }

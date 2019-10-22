@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_catsfeed"/>
 
     <fragment
-        android:id="@+id/navigation_add"
-        android:name="com.ysc3237.snapcat.ui.add.addFragment"
+        android:id="@+id/navigation_home"
+        android:name="com.ysc3237.snapcat.ui.home.HomeFragment"
         android:label="@string/title_app"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_profile"
