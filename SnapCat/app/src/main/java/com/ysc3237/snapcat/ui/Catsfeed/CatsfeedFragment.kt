@@ -22,7 +22,7 @@ class CatsfeedFragment : Fragment() {
         catsfeedViewModel =
             ViewModelProviders.of(this).get(CatsfeedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_catsfeed, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        val textView: TextView = root.findViewById(R.id.text_catsfeed)
         catsfeedViewModel.text.observe(this, Observer {
             textView.text = it
         })
