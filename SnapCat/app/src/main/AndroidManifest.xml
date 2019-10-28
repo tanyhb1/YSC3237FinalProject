@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ysc3237.snapcat">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +26,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC3D2QEVHQPcBVpiNagphTcYuq1asj29RU"/>
         <!--Maps-->
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+<!--        this is a workaround a bug that android stuido has. To read up more check this link https://stackoverflow.com/questions/50461881/java-lang-noclassdeffounderrorfailed-resolution-of-lorg-apache-http-protocolve-->
     </application>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
 
 </manifest>
