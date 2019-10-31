@@ -1,6 +1,11 @@
 package com.ysc3237.snapcat.ui.profile
 
+import android.app.Activity.RESULT_OK
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ysc3237.snapcat.R
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(){
 
     private lateinit var profileViewModel: ProfileViewModel
 
@@ -28,4 +33,6 @@ class ProfileFragment : Fragment() {
         })
         return root
     }
+
+
 }
