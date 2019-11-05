@@ -9,7 +9,5 @@ matrix:
           - tools
           - android-29
           - build-tools-29.0.2
-      before_script:
-        - cd app/
       script:
         - ./gradlew test
