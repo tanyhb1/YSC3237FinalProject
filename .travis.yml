@@ -1,6 +1,5 @@
 language: android
-dist: trusty
-      jdk: oraclejdk8	
+dist: trusty	
 android:
   components:
     - build-tools-26.0.2
@@ -16,4 +15,4 @@ android:
   before_script:
     - cd app/
   script:
-   - ./gradlew build
+   - ./gradlew build --scan -s
