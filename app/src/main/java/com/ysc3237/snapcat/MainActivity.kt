@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
         captureButton = findViewById(R.id.btn_capture)
-        captureButton.setOnClickListener {
+        captureButton.setOnClickListener (View.OnClickListener {
             if (checkPermission()) takePicture() else requestPermission()
-        }
+        })
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -65,15 +65,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var captureButton: Button
 
-    private var REQUEST_IMAGE_CAPTURE = 1
+    val REQUEST_IMAGE_CAPTURE = 1
 
 
     private val PERMISSION_REQUEST_CODE: Int = 101
 
     private var mCurrentPhotoPath: String? = null;
-
-
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> {
@@ -97,7 +94,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun takePicture() {
 
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val intent: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         val file: File = createFile()
 
         val uri: Uri = FileProvider.getUriForFile(
@@ -114,10 +111,10 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
             //To get the File for further usage
-            val auxFile = File(mCurrentPhotoPath)
+            //val auxFile = File(mCurrentPhotoPath)
 
 
-            val bitmap: Bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
+            var bitmap: Bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
             imageView.setImageBitmap(bitmap)
 
         }
@@ -131,7 +128,6 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED)
     }
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun requestPermission() {
         ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE, CAMERA), PERMISSION_REQUEST_CODE)
     }
@@ -151,5 +147,7 @@ class MainActivity : AppCompatActivity() {
             mCurrentPhotoPath = absolutePath
         }
     }
+
+
 
 }

@@ -7,20 +7,30 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 <!--Button for taking photo-->
-    <ImageButton
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_capture"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:src="@drawable/cat_map_icon_24dp"-->
+<!--        tools:context=".MainActivity"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:contentDescription="@string/takes_picture" />-->
+    <Button
         android:id="@+id/btn_capture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/cat_map_icon_24dp"
+        android:text="Take Photo"
         tools:context=".MainActivity"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:contentDescription="@string/takes_picture" />
-
+        android:layout_alignParentRight="true"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
