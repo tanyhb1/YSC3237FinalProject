@@ -38,6 +38,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
     implementation 'com.google.android.gms:play-services:12.0.1' //add this for maps dependency
+    implementation 'androidx.recyclerview:recyclerview:1.0.0' // add this for recyclerview
+    implementation 'androidx.cardview:cardview:1.0.0' // cardView
+//    compile 'com.android.support:cardview-v7:26.0.0'
+    //apply plugin: 'kotlinx-serialization' // add this to avoid Unresolved reference. Find more here https://github.com/Kotlin/kotlinx.serialization/issues/528
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
