@@ -31,53 +31,53 @@ class CatsfeedFragment : Fragment() {
         mCatList = ArrayList()
 
         mCatData = CatData(
-            "Rose", getString(com.ysc3237.snapcat.R.string.description_flower_rose),
+            "Rose", getString(com.ysc3237.snapcat.R.string.description_cat_rose),
             com.ysc3237.snapcat.R.drawable.cat1
         )
 
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Carnation", getString(com.ysc3237.snapcat.R.string.description_flower_carnation),
+            "Carnation", getString(com.ysc3237.snapcat.R.string.description_cat_carnation),
             com.ysc3237.snapcat.R.drawable.cat2
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Tulip", getString(com.ysc3237.snapcat.R.string.description_flower_tulip),
+            "Tulip", getString(com.ysc3237.snapcat.R.string.description_cat_tulip),
             com.ysc3237.snapcat.R.drawable.cat3
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Daisy", getString(com.ysc3237.snapcat.R.string.description_flower_daisy),
+            "Daisy", getString(com.ysc3237.snapcat.R.string.description_cat_daisy),
             com.ysc3237.snapcat.R.drawable.cat4
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Sunflower", getString(com.ysc3237.snapcat.R.string.description_flower_sunflower),
+            "Sunflower", getString(com.ysc3237.snapcat.R.string.description_cat_sunflower),
             com.ysc3237.snapcat.R.drawable.cat5
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Daffodil", getString(com.ysc3237.snapcat.R.string.description_flower_daffodil),
+            "Daffodil", getString(com.ysc3237.snapcat.R.string.description_cat_daffodil),
             com.ysc3237.snapcat.R.drawable.cat6
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Gerbera", getString(com.ysc3237.snapcat.R.string.description_flower_gerbera),
+            "Gerbera", getString(com.ysc3237.snapcat.R.string.description_cat_gerbera),
             com.ysc3237.snapcat.R.drawable.cat7
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Orchid", getString(com.ysc3237.snapcat.R.string.description_flower_orchid),
+            "Orchid", getString(com.ysc3237.snapcat.R.string.description_cat_orchid),
             com.ysc3237.snapcat.R.drawable.cat8
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Iris", getString(com.ysc3237.snapcat.R.string.description_flower_iris),
+            "Iris", getString(com.ysc3237.snapcat.R.string.description_cat_iris),
             com.ysc3237.snapcat.R.drawable.cat9
         )
         mCatList.add(mCatData)
         mCatData = CatData(
-            "Lilac", getString(com.ysc3237.snapcat.R.string.description_flower_lilac),
+            "Lilac", getString(com.ysc3237.snapcat.R.string.description_cat_lilac),
             com.ysc3237.snapcat.R.drawable.cat1
         )
         mCatList.add(mCatData)

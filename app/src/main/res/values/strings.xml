@@ -10,15 +10,15 @@
     <string name="title_activity_photo">PhotoActivity</string>
     <string name="take_photo">Take Photo</string>
     <string name="takes_picture">takes picture</string>
-    <string name="description_flower_rose">A rose is a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears. There are over a hundred species and thousands of cultivars.</string>
-    <string name="description_flower_carnation">Dianthus caryophyllus, the carnation or clove pink, is a species of Dianthus. It is probably native to the Mediterranean region but its exact range is unknown due to extensive cultivation for the last 2,000 years.</string>
-    <string name="description_flower_tulip">Tulips form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red yellow or white.</string>
-    <string name="description_flower_daisy">Bellis perennis is a common European species of daisy, of the Asteraceae family, often considered the archetypal species of that name.</string>
-    <string name="description_flower_sunflower">Helianthus or sunflower L. is a genus of plants comprising about 70 species in the family Asteraceae. The genus is one of many in the Asteraceae that are known as sunflowers.</string>
-    <string name="description_flower_daffodil">Narcissus is a genus of predominantly spring perennial plants in the Amaryllidaceae family. Various common names including daffodil, daffadowndilly, narcissus, and jonquil are used to describe all or some members of the genus.</string>
-    <string name="description_flower_gerbera">Gerbera L. is a genus of plants in the Asteraceae. It was named in honour of German botanist and medical doctor Traugott Gerber | who travelled extensively in Russia and was a friend of Carl Linnaeus.</string>
-    <string name="description_flower_orchid">The Orchidaceae are a diverse and widespread family of flowering plants, with blooms that are often colourful and fragrant, commonly known as the orchid family. Along with the Asteraceae, they are one of the two largest families of flowering plants.</string>
-    <string name="description_flower_iris">Irises are perennial plants, growing from creeping rhizomes (rhizomatous irises) or, in drier climates, from bulbs (bulbous irises). They have long, erect flowering stems which may be simple or branched, solid or hollow, and flattened or have a circular cross-section.</string>
-    <string name="description_flower_lilac">Syringa is a genus of 12 currently recognized species of flowering woody plants in the olive family, native to woodland and scrub from southeastern Europe to eastern Asia, and widely and commonly cultivated in temperate areas elsewhere.</string>
+    <string name="description_cat_rose">OMG this cat is so cute I cannot take it I am going to name her  Bella. Call her Bella from now on hehe #Bella. </string>
+    <string name="description_cat_carnation">OMMMMGGGG LOOK AT HOW CUTE THEY ARRRRRREEEEE!! It is kinda cold :( and this cat is covering its friend AWWWWWWWWWWWW</string>
+    <string name="description_cat_tulip">Check out this badass cat LOOOOL he just stayed still with his grumpy face as I put the camera cloe to him. I am dying </string>
+    <string name="description_cat_daisy">A Gang of cats hanging around Tanjong Pagar! Catch them up soon if you need some cat energy #catlovers</string>
+    <string name="description_cat_sunflower">OMG this cat is so cute I cannot take it I am going to name him Jafaar. Call him Jafaar from now on hehe #Jafaar.</string>
+    <string name="description_cat_daffodil">OMG this cat is so cute I cannot take it I am going to name her  Simba. Call her Simba from now on hehe #Simba.</string>
+    <string name="description_cat_gerbera">A Gang of cats hanging around Tanjong Pagar! Catch them up soon if you need some cat energy #catlover</string>
+    <string name="description_cat_orchid">These two cats were having a cute wrestle and then shared a muffin I gave to them #cute #catswrestle #lovecats</string>
+    <string name="description_cat_iris">IOMMMMGGGG LOOK AT HOW CUTE THEY ARRRRRREEEEE! I really cannot take it I want to take them all back home :(((((((((((((((</string>
+    <string name="description_cat_lilac"> This car looks sick! Anyone knows who to contact for street cat care? :(((((( #helpcats</string>
     <string name="textview">TextView</string>
 </resources>
