@@ -10,4 +10,15 @@
     <string name="title_activity_photo">PhotoActivity</string>
     <string name="take_photo">Take Photo</string>
     <string name="takes_picture">takes picture</string>
+    <string name="description_cat_rose">OMG this cat is so cute I cannot take it I am going to name her  Bella. Call her Bella from now on hehe #Bella. </string>
+    <string name="description_cat_carnation">OMMMMGGGG LOOK AT HOW CUTE THEY ARRRRRREEEEE!! It is kinda cold :( and this cat is covering its friend AWWWWWWWWWWWW</string>
+    <string name="description_cat_tulip">Check out this badass cat LOOOOL he just stayed still with his grumpy face as I put the camera cloe to him. I am dying </string>
+    <string name="description_cat_daisy">A Gang of cats hanging around Tanjong Pagar! Catch them up soon if you need some cat energy #catlovers</string>
+    <string name="description_cat_sunflower">OMG this cat is so cute I cannot take it I am going to name him Jafaar. Call him Jafaar from now on hehe #Jafaar.</string>
+    <string name="description_cat_daffodil">OMG this cat is so cute I cannot take it I am going to name her  Simba. Call her Simba from now on hehe #Simba.</string>
+    <string name="description_cat_gerbera">A Gang of cats hanging around Tanjong Pagar! Catch them up soon if you need some cat energy #catlover</string>
+    <string name="description_cat_orchid">These two cats were having a cute wrestle and then shared a muffin I gave to them #cute #catswrestle #lovecats</string>
+    <string name="description_cat_iris">IOMMMMGGGG LOOK AT HOW CUTE THEY ARRRRRREEEEE! I really cannot take it I want to take them all back home :(((((((((((((((</string>
+    <string name="description_cat_lilac"> This car looks sick! Anyone knows who to contact for street cat care? :(((((( #helpcats</string>
+    <string name="textview">TextView</string>
 </resources>

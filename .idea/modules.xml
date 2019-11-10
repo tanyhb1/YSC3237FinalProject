@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SnapCat.iml" filepath="$PROJECT_DIR$/SnapCat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YSC3237FinalProject-SnapCat.iml" filepath="$PROJECT_DIR$/YSC3237FinalProject-SnapCat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/YSC3237FinalProject-app.iml" filepath="$PROJECT_DIR$/app/YSC3237FinalProject-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
