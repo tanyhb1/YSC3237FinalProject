@@ -1,4 +1,3 @@
-
 matrix:
   include:
     - language: android
@@ -11,3 +10,7 @@ matrix:
           - build-tools-29.0.2
       script:
         - ./gradlew test
+
+notifications:
+	email:
+	- bryantanyh@u.yale-nus.edu.sg
