@@ -33,7 +33,10 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
 
     @Override
     public void onBindViewHolder(final CatViewHolder holder, int position) {
-        holder.mImage.setImageResource(mCatList.get(position).getCatImage());
+        if(mCatList.get(position).getCatBitmap() != null)
+            holder.mImage.setImageBitmap(mCatList.get(position).getCatBitmap());
+        else
+            holder.mImage.setImageResource(mCatList.get(position).getCatImage());
         holder.mTitle.setText(mCatList.get(position).getCatName());
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,7 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
                 mIntent.putExtra("Title", mCatList.get(holder.getAdapterPosition()).getCatName());
                 mIntent.putExtra("Description", mCatList.get(holder.getAdapterPosition()).getCatDescription());
+
                 mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatImage());
                 mContext.startActivity(mIntent);
 

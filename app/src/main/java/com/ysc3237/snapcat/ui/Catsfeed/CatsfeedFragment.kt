@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ysc3237.snapcat.MainActivity
 import android.R
-
-
+import com.google.android.gms.maps.model.LatLng
 
 
 class CatsfeedFragment : Fragment() {
+
+    companion object {
+        lateinit var myAdapter1: myAdapter
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,60 +33,9 @@ class CatsfeedFragment : Fragment() {
 
         mCatList = ArrayList()
 
-        mCatData = CatData(
-            "Rose", getString(com.ysc3237.snapcat.R.string.description_cat_rose),
-            com.ysc3237.snapcat.R.drawable.cat1
-        )
+        MainActivity.instance.initCats();
 
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Carnation", getString(com.ysc3237.snapcat.R.string.description_cat_carnation),
-            com.ysc3237.snapcat.R.drawable.cat2
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Tulip", getString(com.ysc3237.snapcat.R.string.description_cat_tulip),
-            com.ysc3237.snapcat.R.drawable.cat3
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Daisy", getString(com.ysc3237.snapcat.R.string.description_cat_daisy),
-            com.ysc3237.snapcat.R.drawable.cat4
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Sunflower", getString(com.ysc3237.snapcat.R.string.description_cat_sunflower),
-            com.ysc3237.snapcat.R.drawable.cat5
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Daffodil", getString(com.ysc3237.snapcat.R.string.description_cat_daffodil),
-            com.ysc3237.snapcat.R.drawable.cat6
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Gerbera", getString(com.ysc3237.snapcat.R.string.description_cat_gerbera),
-            com.ysc3237.snapcat.R.drawable.cat7
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Orchid", getString(com.ysc3237.snapcat.R.string.description_cat_orchid),
-            com.ysc3237.snapcat.R.drawable.cat8
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Iris", getString(com.ysc3237.snapcat.R.string.description_cat_iris),
-            com.ysc3237.snapcat.R.drawable.cat9
-        )
-        mCatList.add(mCatData)
-        mCatData = CatData(
-            "Lilac", getString(com.ysc3237.snapcat.R.string.description_cat_lilac),
-            com.ysc3237.snapcat.R.drawable.cat1
-        )
-        mCatList.add(mCatData)
-
-        val myAdapter1: myAdapter
-        myAdapter1 = myAdapter(context, mCatList)
+        myAdapter1 = myAdapter(context, MainActivity.catList)
 //        MyAdapter(Context mContext, List< CatData > mCatList) {
         mRecyclerView.adapter = myAdapter1
 

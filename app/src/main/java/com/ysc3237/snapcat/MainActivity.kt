@@ -1,6 +1,9 @@
 package com.ysc3237.snapcat
 
 import android.Manifest.permission.*
+import android.Manifest.permission.CAMERA
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
@@ -35,25 +38,166 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.BitmapRequestListener
+import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.androidnetworking.interfaces.UploadProgressListener
 import com.google.android.gms.ads.internal.gmsg.HttpClient
+import com.google.android.gms.maps.model.LatLng
+import com.ysc3237.snapcat.ui.Catsfeed.CatData
+import com.ysc3237.snapcat.ui.Catsfeed.CatsfeedFragment
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    companion object {
+        val catList = ArrayList<CatData>()
+        val serverURL: String = "http://hebehh.pythonanywhere.com"
+        lateinit var instance: MainActivity
+        var catListLoaded = false;
+    }
+
+    fun initCats() {
+        if(!catListLoaded)
+            loadCats()
+    }
+
+    fun loadCats() {
+        catList.clear()
+
+        AndroidNetworking.get(serverURL+"/list_cats")
+            .build()
+            .getAsJSONArray(object: JSONArrayRequestListener {
+                override fun onResponse(response: JSONArray?) {
+                    Log.d("SNAPCAT", "Got "+response?.length()+" cats. response for loadcats - "+response)
+
+                    for (i in 0 until response!!.length()) {
+                        val cat = response?.getJSONObject(i)
+
+                        Log.d("SNAPCAT", "Getting image from "+serverURL+"/Images/"+cat!!.get("fileName"))
+                        AndroidNetworking.get(serverURL+"/Images/"+cat!!.get("fileName"))
+                            .setBitmapConfig(Bitmap.Config.ARGB_8888)
+                            .build()
+                            .getAsBitmap(object: BitmapRequestListener {
+                                override fun onResponse(bitmap: Bitmap) {
+                                    Log.d("SNAPCAT", "got bitmap for element "+i+" of size "+bitmap.width+" and "+bitmap.height)
+
+                                    val newCat = CatData(
+                                        i.toString(),
+                                        cat.get("caption") as String,
+                                        com.ysc3237.snapcat.R.drawable.cat1,
+                                        bitmap,
+                                        LatLng(cat.get("latitude") as Double, cat.get("longitude") as Double)
+                                    )
+
+                                    Log.d("SNAPCAT", "Adding cat "+newCat.catName+", number "+i+", caption "+newCat.catDescription)
+                                    catList.add(newCat)
+
+                                    CatsfeedFragment.myAdapter1.notifyDataSetChanged()
+                                }
+
+                                override fun onError(error: ANError) {
+                                    Log.d("SNAPCAT", "Error getting bitmap for element "+i+" - "+error?.message)
+                                }
+                            })
+                    }
+                }
+
+                override fun onError(anError: ANError?) {
+                    Log.d("SNAPCAT", "Got error for loadcats - "+anError?.message)
+                }
+            })
+
+        loadDummyData()
+        catListLoaded = true
+    }
+
+    private fun getDummyLatLng(): LatLng {
+        val latMax = 1.437690
+        val latMin = 1.315238
+        val lngMax = 104.014576
+        val lngMin = 103.638152
+        val divs = 100
+
+        val lat = latMin+(((0..divs).random()).toDouble()/divs)*(latMax-latMin)
+        val lng = lngMin+(((0..divs).random()).toDouble()/divs)*(lngMax-lngMin)
+
+        return LatLng(lat, lng)
+    }
+
+    private fun loadDummyData() {
+        catList.add(CatData(
+            "Rose", getString(com.ysc3237.snapcat.R.string.description_cat_rose),
+            com.ysc3237.snapcat.R.drawable.cat1,
+            null,
+            getDummyLatLng()
+        ));
+        catList.add(CatData(
+            "Carnation", getString(com.ysc3237.snapcat.R.string.description_cat_carnation),
+            com.ysc3237.snapcat.R.drawable.cat2,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Tulip", getString(com.ysc3237.snapcat.R.string.description_cat_tulip),
+            com.ysc3237.snapcat.R.drawable.cat3,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Daisy", getString(com.ysc3237.snapcat.R.string.description_cat_daisy),
+            com.ysc3237.snapcat.R.drawable.cat4,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Sunflower", getString(com.ysc3237.snapcat.R.string.description_cat_sunflower),
+            com.ysc3237.snapcat.R.drawable.cat5,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Daffodil", getString(com.ysc3237.snapcat.R.string.description_cat_daffodil),
+            com.ysc3237.snapcat.R.drawable.cat6,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Gerbera", getString(com.ysc3237.snapcat.R.string.description_cat_gerbera),
+            com.ysc3237.snapcat.R.drawable.cat7,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Orchid", getString(com.ysc3237.snapcat.R.string.description_cat_orchid),
+            com.ysc3237.snapcat.R.drawable.cat8,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Iris", getString(com.ysc3237.snapcat.R.string.description_cat_iris),
+            com.ysc3237.snapcat.R.drawable.cat9,
+            null,
+            getDummyLatLng()
+        ))
+        catList.add(CatData(
+            "Lilac", getString(com.ysc3237.snapcat.R.string.description_cat_lilac),
+            com.ysc3237.snapcat.R.drawable.cat1,
+            null,
+            getDummyLatLng()
+        ))
+    }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,12 +205,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        Log.d("HELLO", " WORLD")
+        instance = this
+        initCats()
+
 
         // Get persistent location manager to give location data for photos and map
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // resume normal
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -169,6 +314,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    // TODO: Let user add caption
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
@@ -187,13 +334,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+
+
             doAsync {
                 Log.d("SNAPCAT","HELLO WORLD")
                 val url: String = "http://hebehh.pythonanywhere.com/upload"
 //                var url: String = "http://b7bf48c8.ngrok.io/upload"
                 val imageFile = File(mCurrentPhotoPath)
 
-                // Get location info:
+                // Get location info, then upload:
                 fusedLocationClient.lastLocation
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
@@ -225,25 +374,28 @@ class MainActivity : AppCompatActivity() {
                                 })
                                 .getAsJSONObject(object: JSONObjectRequestListener {
                                     override fun onResponse(response: JSONObject) {
-                                        Log.d("SNAPCAT", "Got response "+response);
+                                        Log.d("SNAPCAT", "Got response "+response)
                                     }
                                     override fun onError(error: ANError) {
-                                        Log.d("SNAPCAT", "Got error "+error);
+                                        Log.d("SNAPCAT", "Got error "+error)
 
                                     }
                                 })
-                            Log.d("SNAPCAT", "Uploaded");
+                            Log.d("SNAPCAT", "Uploaded")
+                            //TODO: Inform user of success
                         }
                     }
                 // Uploading image etc:
-                Log.d("SNAPCAT", "Uploading file - "+mCurrentPhotoPath);
+                Log.d("SNAPCAT", "Uploading file - "+mCurrentPhotoPath)
 
             }
         }
     }
 
-
-
+    // Check we have all necessary permissions
+    // WARNING: if you need a permission, you have to add it manually. To this and to request permission
+    // TODO: change to have a list of necessary permissions (maybe get direct from manifest? should be a way)
+    //  and then map from that to check and request automatically so don't need to do manual
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun checkPermission(): Boolean {
         return (ContextCompat.checkSelfPermission(this, CAMERA) ==
@@ -277,8 +429,6 @@ class MainActivity : AppCompatActivity() {
             mCurrentPhotoPath = absolutePath
         }
     }
-
-
 
 
 
