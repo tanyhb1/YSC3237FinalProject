@@ -1,3 +1,6 @@
 Notes on getting Flask server to work:
 
+Running at: http://hebehh.pythonanywhere.com/upload
+use http://hebehh.pythonanywhere.com/test to check server is up and working.
+
 All images are stored in an /Images/ folder that must be in the working directory of the flask server.
