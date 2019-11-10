@@ -14,10 +14,12 @@
 import flask
 import werkzeug
 import time
+import pprint
+import json
 
 app = flask.Flask(__name__)
 
-log_file = open("mysite/stuff.txt","a")
+log_file = open("stuff.txt","a")
 
 # Check server is running
 @app.route('/test', methods = ['GET', 'POST'])
@@ -34,21 +36,38 @@ def print_filename():
 # Upload image
 @app.route('/upload', methods = ['GET', 'POST'])
 def handle_request():
+    print("Handling /upload...")
+
     files_ids = list(flask.request.files)
-    # caption=flask.request.form['caption']
+
+    print("Request headers - ")
+    print(flask.request.headers)
+
+    print("Files are ")
+    pprint.pprint(flask.request.files)
+
+    print("Fields are ")
+    pprint.pprint(flask.request.form)
+
+    caption=flask.request.form['caption']
 
     # log received data
-    log_file.write("\nNumber of Received Images : "+ str(len(files_ids)))
-    # log_file.write("Caption: "+caption)
+    print("\nNumber of Received Images : "+ str(len(files_ids)))
+    print("Caption: "+caption)
 
     image_num = 1
     for file_id in files_ids:
-        log_file.write("\nSaving Image ", str(image_num), "/", len(files_ids))
+        print("\nSaving Image %s/%d" % (str(image_num), len(files_ids)))
         imagefile = flask.request.files[file_id]
         filename = werkzeug.utils.secure_filename(imagefile.filename)
-        log_file.write("Image Filename : " + imagefile.filename)
+        print("Image Filename : " + imagefile.filename)
         timestr = time.strftime("%Y%m%d-%H%M%S")
         imagefile.save("Images/"+timestr+'_'+filename)
         image_num = image_num + 1
     print("\n")
-    return "Image(s) Uploaded Successfully. Come Back Soon."
+    print("Image(s) Uploaded Successfully. Come Back Soon.")
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
+if __name__ == "__main__":
+    print("Running server...")
+    app.run('0.0.0.0',5000)
