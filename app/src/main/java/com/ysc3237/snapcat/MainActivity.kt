@@ -3,7 +3,6 @@ package com.ysc3237.snapcat
 import android.Manifest.permission.*
 import android.Manifest.permission.CAMERA
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
@@ -13,16 +12,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.core.app.ActivityCompat.startActivityForResult
 import android.provider.MediaStore
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
@@ -30,7 +24,6 @@ import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -42,7 +35,6 @@ import com.androidnetworking.interfaces.BitmapRequestListener
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.androidnetworking.interfaces.UploadProgressListener
-import com.google.android.gms.ads.internal.gmsg.HttpClient
 import com.google.android.gms.maps.model.LatLng
 import com.ysc3237.snapcat.ui.Catsfeed.CatData
 import com.ysc3237.snapcat.ui.Catsfeed.CatsfeedFragment
@@ -50,7 +42,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
-import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -96,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                                     val newCat = CatData(
                                         i.toString(),
                                         cat.get("caption") as String,
-                                        com.ysc3237.snapcat.R.drawable.cat1,
+                                        R.drawable.cat1,
                                         bitmap,
                                         LatLng(cat.get("latitude") as Double, cat.get("longitude") as Double)
                                     )
@@ -237,15 +228,11 @@ class MainActivity : AppCompatActivity() {
         AndroidNetworking.initialize(getApplicationContext());
     }
 
-    lateinit var imageView: ImageView
     lateinit var captureButton: Button
-
     val REQUEST_IMAGE_CAPTURE = 1
-
-
     private val PERMISSION_REQUEST_CODE: Int = 101
+    private var mCurrentPhotoPath: String? = null
 
-    private var mCurrentPhotoPath: String? = null;
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> {
@@ -341,6 +328,7 @@ class MainActivity : AppCompatActivity() {
                 val url: String = "http://hebehh.pythonanywhere.com/upload"
 //                var url: String = "http://b7bf48c8.ngrok.io/upload"
                 val imageFile = File(mCurrentPhotoPath)
+                //TODO: Compress file
 
                 // Get location info, then upload:
                 fusedLocationClient.lastLocation
@@ -369,7 +357,7 @@ class MainActivity : AppCompatActivity() {
                                 .build()
                                 .setUploadProgressListener(object: UploadProgressListener {
                                     override fun onProgress(bytesUploaded: Long, totalBytes: Long) {
-                                        // Log.d("SNAPCAT", "Uploading... "+bytesUploaded+" of "+totalBytes+" bytes");
+                                         Log.d("SNAPCAT", "Uploading... "+bytesUploaded+" of "+totalBytes+" bytes");
                                     }
                                 })
                                 .getAsJSONObject(object: JSONObjectRequestListener {

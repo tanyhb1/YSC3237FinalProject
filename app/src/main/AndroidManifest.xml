@@ -45,7 +45,9 @@
         </activity> <!-- Maps android key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC3D2QEVHQPcBVpiNagphTcYuq1asj29RU" /> <!-- Maps -->
+            android:value="AIzaSyDiOunMbOkbDw5tHtLydOuAt0d96jh-v58" /> <!-- Maps -->
+
+        <!--            android:value="AIzaSyC3D2QEVHQPcBVpiNagphTcYuq1asj29RU" /> &lt;!&ndash; Maps &ndash;&gt;-->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
