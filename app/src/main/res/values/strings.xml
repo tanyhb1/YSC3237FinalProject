@@ -21,4 +21,11 @@
     <string name="description_cat_iris">IOMMMMGGGG LOOK AT HOW CUTE THEY ARRRRRREEEEE! I really cannot take it I want to take them all back home :(((((((((((((((</string>
     <string name="description_cat_lilac"> This car looks sick! Anyone knows who to contact for street cat care? :(((((( #helpcats</string>
     <string name="textview">TextView</string>
+    <string name="b_tech" />
+    <string name="mobile" />
+    <string name="email" />
+    <string name="approved_by" />
+    <string name="user_name">Shardul Sapkota</string>
+    <string name="user_occupation">Peer Tutor</string>
+    <string name="quote"><i>Everthing is an object, even cats... </i></string>
 </resources>
