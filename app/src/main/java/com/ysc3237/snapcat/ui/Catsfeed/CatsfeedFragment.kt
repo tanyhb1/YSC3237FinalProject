@@ -10,7 +10,13 @@ import com.ysc3237.snapcat.MainActivity
 import android.R
 import com.google.android.gms.maps.model.LatLng
 
-
+/**
+ * A group of *members*.
+ *
+ * This class has no useful logic; it's just a documentation example.
+ *
+ * @constructor Creates an empty group.
+ */
 class CatsfeedFragment : Fragment() {
 
     companion object {

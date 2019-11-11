@@ -15,6 +15,12 @@ import com.ysc3237.snapcat.R;
 
 import java.util.List;
 
+/**
+ * A group of *members*.
+ *
+ * This class has no useful logic; it's just a documentation example.
+ * @constructor Creates an empty group.
+ */
 public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
 
     private Context mContext;
