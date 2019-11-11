@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="330dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/description_cat_lilac"
 

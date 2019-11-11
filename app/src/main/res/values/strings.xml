@@ -27,5 +27,5 @@
     <string name="approved_by" />
     <string name="user_name">Shardul Sapkota</string>
     <string name="user_occupation">Peer Tutor</string>
-    <string name="quote">Everthing is an object, even cats... </string>
+    <string name="quote"><i>Everthing is an object, even cats... </i></string>
 </resources>
