@@ -48,6 +48,12 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
 
+/**
+ * Main activity that acts as a controller for our app's functionality.
+ * Loads our photos from the server on the feed, and provides photo-taking functionality together with interaction with our server.
+ * @author Bryan Tan, Haroun Chahed, Hebe Hilhorst
+ * @since 1.0
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -59,11 +65,17 @@ class MainActivity : AppCompatActivity() {
         var catListLoaded = false;
     }
 
+    /**
+     * Initialize our catList
+     */
     fun initCats() {
         if(!catListLoaded)
             loadCats()
     }
 
+    /**
+     * Load cats
+     */
     fun loadCats() {
         catList.clear()
 
@@ -114,6 +126,10 @@ class MainActivity : AppCompatActivity() {
         catListLoaded = true
     }
 
+    /**
+     * Generates dummy coordinates for testing.
+     * @see: loadDummyData
+     */
     private fun getDummyLatLng(): LatLng {
         val latMax = 1.437690
         val latMin = 1.315238
@@ -190,6 +206,9 @@ class MainActivity : AppCompatActivity() {
         ))
     }
 
+    /**
+     * Creates our list of cat photos accessed from the server. Provides interaction between our server and the camera.
+     */
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -233,6 +252,10 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST_CODE: Int = 101
     private var mCurrentPhotoPath: String? = null
 
+    /**
+     *  Requests for permissions, and returns the result.
+     *  @author haefihs
+     */
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> {
