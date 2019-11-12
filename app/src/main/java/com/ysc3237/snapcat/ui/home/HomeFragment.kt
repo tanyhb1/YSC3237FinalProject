@@ -25,6 +25,7 @@ import android.graphics.drawable.Drawable
 import com.google.android.gms.maps.model.BitmapDescriptor
 import android.content.Context
 import android.graphics.Canvas
+import com.ysc3237.snapcat.MainActivity
 
 
 class HomeFragment : Fragment() {
@@ -51,12 +52,22 @@ class HomeFragment : Fragment() {
 //            googleMap!!.isMyLocationEnabled = true
 
             //To add cat marker
+//            val cat1 = LatLng(1.3048, 103.8318)
+//            googleMap!!.addMarker(MarkerOptions()
+//                .position(cat1)
+//                .title("Cat1")
+//                .snippet("Caption associated with the photo should go here")
+//                .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)));
+//
+
             val cat1 = LatLng(1.3048, 103.8318)
-            googleMap!!.addMarker(MarkerOptions()
-                .position(cat1)
-                .title("Cat1")
-                .snippet("Caption associated with the photo should go here")
-                .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)));
+            MainActivity.catList.forEach {
+                googleMap!!.addMarker(MarkerOptions()
+                    .position(it.catLocation)
+                    .title(it.catName)
+                    .snippet(it.catDescription)
+                    .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)));
+            }
 
             // For zooming functionality
             val cameraPosition = CameraPosition.Builder().target(LatLng(1.3048, 103.8318)).zoom(10f).build() // camera centered at singapore for now - must change to user location
