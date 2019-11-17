@@ -7,14 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.ysc3237.snapcat.R;
-
 import java.util.List;
 
+
+
+/**
+ * Creates RecyclerView.Adapter for the CatViewHolders
+ * @since 1.0
+ * @see CatViewHolder
+ */
 public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
 
     private Context mContext;
@@ -25,12 +29,17 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
      * @param mContext
      * @param mCatList
      */
-
     myAdapter(Context mContext, List< CatData > mCatList) {
         this.mContext = mContext;
         this.mCatList = mCatList;
     }
 
+    /**
+     * Creates empty CatViewHolder within parent ViewGroup.
+     * @param parent
+     * @param viewType
+     * @return CatViewHolder
+     */
     @Override
     public CatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row_item, parent, false);
@@ -38,11 +47,10 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
     }
 
     /**
-     * click function so that when we tap on any of the cat images, we will move to another page which shows you the picture and a description.
+     * Click function so that when we tap on any of the cat images, we will move to another page which shows you the picture and a description.
      * @param holder
      * @param position
      */
-
     @Override
     public void onBindViewHolder(final CatViewHolder holder, int position) {
         if(mCatList.get(position).getCatBitmap() != null)
@@ -70,8 +78,8 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
     }
 
     /**
-     * counts number of cats.
-     * @return size of cat list.
+     * Counts number of cats.
+     * @return int size of cat list.
      */
     @Override
     public int getItemCount() {
@@ -79,6 +87,12 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
     }
 }
 
+
+/**
+ * Template class for viewing single cat image with name and caption
+ * @see myAdapter
+ * @since 1.0
+ */
 class CatViewHolder extends RecyclerView.ViewHolder {
 
     ImageView mImage;
@@ -86,7 +100,7 @@ class CatViewHolder extends RecyclerView.ViewHolder {
     CardView mCardView;
 
     /**
-     * declare and initialize Android ImageView and TextView.
+     * Declare and initialize Android ImageView and TextView.
      * @param itemView
      */
 

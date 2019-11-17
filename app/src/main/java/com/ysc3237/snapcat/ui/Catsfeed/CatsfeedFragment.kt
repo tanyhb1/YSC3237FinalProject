@@ -17,31 +17,30 @@ import com.google.android.gms.maps.model.LatLng
  * Declares and initialize Recyclerview and the actual data to be displayed in Android Gridlayout.
  * @see myAdapter
  * @see CatViewHolder
+ * @since 1.0
  */
-
 class CatsfeedFragment : Fragment() {
 
     companion object {
         lateinit var myAdapter1: myAdapter
     }
 
+    /**
+     * Creates a grid layout of cats
+     * @return View? This is a grid layout view of the various cats.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ) : View? {
         val root = inflater.inflate(com.ysc3237.snapcat.R.layout.fragment_catsfeed, container, false)
 
         val mRecyclerView = root.findViewById<RecyclerView>(com.ysc3237.snapcat.R.id.recyclerview)
         val mGridLayoutManager = GridLayoutManager(context, 2)
         mRecyclerView.layoutManager = mGridLayoutManager
 
-        val mCatList: List<CatData>
-        var mCatData: CatData
-
-        mCatList = ArrayList()
-
-        MainActivity.instance.initCats();
+        MainActivity.instance.initCats()
 
         myAdapter1 = myAdapter(context, MainActivity.catList)
         mRecyclerView.adapter = myAdapter1

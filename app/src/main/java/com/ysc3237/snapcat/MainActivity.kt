@@ -55,7 +55,6 @@ import com.google.android.gms.location.LocationServices
  * @author Bryan Tan, Haroun Chahed, Hebe Hilhorst
  * @since 1.0
  */
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -130,8 +129,9 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Generates dummy coordinates for testing.
-     * @see: loadDummyData
      * @return A random LatLng pair within the minimum Singapore-containing rectangle (some of this is in Malaysia)
+     * @see: loadDummyData
+     * @see CatData
      */
     private fun getDummyLatLng(): LatLng {
         val latMax = 1.437690
@@ -149,6 +149,8 @@ class MainActivity : AppCompatActivity() {
     /**
      * Adds a selection of dummy data to the CatData
      * @return void
+     * @see getDummyLatLng
+     * @see CatData
      */
     private fun loadDummyData() {
         catList.add(CatData(
@@ -261,31 +263,6 @@ class MainActivity : AppCompatActivity() {
     private var mCurrentPhotoPath: String? = null
 
     /**
-     *  Requests for permissions, and returns the result.
-     *  @author haefihs
-     */
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when (requestCode) {
-            PERMISSION_REQUEST_CODE -> {
-
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-
-                    takePicture()
-
-                } else {
-                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
-                }
-                return
-            }
-
-            else -> {
-
-            }
-        }
-    }
-
-    /**
      * Creates a temporary file to store an image
      * @return File This is an empty file to store the new image in
      */
@@ -346,6 +323,7 @@ class MainActivity : AppCompatActivity() {
      * @param resultCode
      * @param data The photo from the takePicture() intent call
      * @return Unit
+     * @see CatData
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) : Unit {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
@@ -423,12 +401,38 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     *  Requests for permissions, and returns the result.
+     *  @author haefihs
+     */
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            PERMISSION_REQUEST_CODE -> {
+
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+
+                    takePicture()
+
+                } else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+                }
+                return
+            }
+
+            else -> {
+
+            }
+        }
+    }
+
 
     // TODO: change to have a list of necessary permissions (maybe get direct from manifest? should be a way)
     //  and then map from that to check and request automatically so don't need to do manual
     /**
      * Checks whether the app has READ_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions
      * WARNING: if you need a permission, you have to add it manually. To this and to request permission
+     * WARNING: doesn't request permission if not held
      * @return Boolean
      */
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -446,7 +450,9 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Requests READ_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions.
+     * WARNING: if you need a permission, you have to add it manually. To this and to request permission
      * @return Unit
+     * @see onRequestPermissionsResult
      */
     private fun requestPermission() {
         ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE,

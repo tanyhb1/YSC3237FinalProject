@@ -18,6 +18,7 @@ import com.ysc3237.snapcat.R
 /**
  * Class for fragment of profile
  * for now this class is a place holder with demo data until we get user info from database
+ * @since 1.0
  */
 
 class ProfileFragment : Fragment(){
@@ -30,6 +31,4 @@ class ProfileFragment : Fragment(){
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
         return root
     }
-
-
 }

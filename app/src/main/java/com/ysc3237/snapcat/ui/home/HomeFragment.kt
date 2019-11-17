@@ -33,22 +33,23 @@ import com.ysc3237.snapcat.MainActivity
  * Displays singapore map with clickable markers of cat photos.
  * When clicked, markers display caption.
  * Displays user location.
+ * @since 1.0
  */
 
 class HomeFragment : Fragment() {
     private var mMapView: MapView? = null
     private var googleMap: GoogleMap? = null
+
     /**
      * Initializes map.
      * zooms and centers it at Singapore.
      * creates clickable markers for cats.
      */
-
-    override fun onCreateView(
+    override fun onCreateView (
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ) : View? {
         val view = inflater.inflate(com.ysc3237.snapcat.R.layout.fragment_home, null, false)
         mMapView = view.findViewById(com.ysc3237.snapcat.R.id.mapView)
         mMapView!!.onCreate(savedInstanceState)
@@ -61,18 +62,6 @@ class HomeFragment : Fragment() {
 
         mMapView!!.getMapAsync { mMap ->
             googleMap = mMap
-//            googleMap!!.isMyLocationEnabled = true
-
-            //To add cat marker
-//            val cat1 = LatLng(1.3048, 103.8318)
-//            googleMap!!.addMarker(MarkerOptions()
-//                .position(cat1)
-//                .title("Cat1")
-//                .snippet("Caption associated with the photo should go here")
-//                .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)));
-//
-
-            val cat1 = LatLng(1.3048, 103.8318)
             MainActivity.catList.forEach {
                 googleMap!!.addMarker(MarkerOptions()
                     .position(it.catLocation)

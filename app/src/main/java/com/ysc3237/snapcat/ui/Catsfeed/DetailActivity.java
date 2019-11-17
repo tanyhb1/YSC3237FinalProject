@@ -12,7 +12,6 @@ import com.ysc3237.snapcat.R;
  * Activity containing details of catphoto (image and description) once clicked on catsfeed fragment.
  * @since 1.0
  */
-
 public class DetailActivity extends AppCompatActivity {
 
     ImageView mCat;
