@@ -29,7 +29,7 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
      * @param mContext
      * @param mCatList
      */
-    myAdapter(Context mContext, List< CatData > mCatList) {
+    myAdapter(Context mContext, List<CatData> mCatList) {
         this.mContext = mContext;
         this.mCatList = mCatList;
     }
@@ -53,6 +53,7 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
      */
     @Override
     public void onBindViewHolder(final CatViewHolder holder, int position) {
+
         if(mCatList.get(position).getCatBitmap() != null)
             holder.mImage.setImageBitmap(mCatList.get(position).getCatBitmap());
         else
@@ -70,6 +71,12 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
                 mIntent.putExtra("Description", mCatList.get(holder.getAdapterPosition()).getCatDescription());
 
                 mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatImage());
+
+//                if(mCatList.get(position).getCatBitmap() != null)
+//                    mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatBitmap());
+//                else
+//                    mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatImage());
+
                 mContext.startActivity(mIntent);
 
             }

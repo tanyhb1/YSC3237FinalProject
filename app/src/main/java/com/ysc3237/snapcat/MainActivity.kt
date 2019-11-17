@@ -48,6 +48,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import java.io.FileOutputStream
+import java.io.OutputStream
 
 
 /**
@@ -316,11 +318,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
+        // Raw height and width of image
+        val (height: Int, width: Int) = options.run { outHeight to outWidth }
+        var inSampleSize = 1
 
+        if (height > reqHeight || width > reqWidth) {
 
-    // TODO: Let user add caption
+            val halfHeight: Int = height / 2
+            val halfWidth: Int = width / 2
+
+            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+            // height and width larger than the requested height and width.
+            while (halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth) {
+                inSampleSize *= 2
+            }
+        }
+
+        return inSampleSize
+    }
+
+    // TODO: would be nice to keep photo up while asking for caption. but not sure how,
+    //  since that's an entirely separate intent.
+    // TODO: Maybe try and use callback functions instead of so much nesting?
+    //  but not a major issues.
     /**
-     * Handle a photo once taken: get location and send to server
+     * Handle a photo once taken: get caption and location and send to server
      * @param requestCode
      * @param resultCode
      * @param data The photo from the takePicture() intent call
@@ -330,7 +353,28 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) : Unit {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
-            var bitmap: Bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
+            val imageFile = File(mCurrentPhotoPath)
+
+            var bitmap : Bitmap = BitmapFactory.Options().run {
+                inJustDecodeBounds = true
+                BitmapFactory.decodeFile(mCurrentPhotoPath, this)
+
+                // Calculate inSampleSize
+                inSampleSize = calculateInSampleSize(this, 200, 200)
+
+                // Decode bitmap with inSampleSize set
+                inJustDecodeBounds = false
+
+                BitmapFactory.decodeFile(mCurrentPhotoPath, this)
+            }
+            val stream : OutputStream = FileOutputStream(imageFile)
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
+            stream.flush()
+            stream.close()
+
+
+
+            Log.d("SNAPCAT", "Bitmap height is: " + bitmap.height.toString())
             var capt = "This is a cat."
             var lati = "0"
             var longi = "0"
@@ -349,8 +393,6 @@ class MainActivity : AppCompatActivity() {
 
             doAsync {
                 val url: String = "http://hebehh.pythonanywhere.com/upload"
-                val imageFile = File(mCurrentPhotoPath)
-                //TODO: Compress file
 
                 // Get location info, then upload:
                 fusedLocationClient.lastLocation
@@ -404,6 +446,11 @@ class MainActivity : AppCompatActivity() {
                                 val toast = Toast.makeText(applicationContext, text, duration)
                                 toast.show()
                             }
+                            // Let them cancel
+                            builder.setNegativeButton(android.R.string.cancel) { dialog, p1 ->
+                                dialog.cancel()
+                            }
+
                             builder.show()
 
                         }
@@ -454,6 +501,8 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
             ACCESS_COARSE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
+            WRITE_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
             ACCESS_FINE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED)
     }
@@ -466,7 +515,7 @@ class MainActivity : AppCompatActivity() {
      * @see onRequestPermissionsResult
      */
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE,
+        ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,
             CAMERA, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION), PERMISSION_REQUEST_CODE)
     }
 

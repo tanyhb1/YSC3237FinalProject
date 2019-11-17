@@ -3,10 +3,9 @@ package com.ysc3237.snapcat.ui.Catsfeed;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.ysc3237.snapcat.R;
+import com.ysc3237.snapcat.MainActivity;
 
 /**
  * Activity containing details of catphoto (image and description) once clicked on catsfeed fragment.
@@ -27,6 +26,8 @@ public class DetailActivity extends AppCompatActivity {
 
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
+
+
             mCat.setImageResource(mBundle.getInt("Image"));
             mDescription.setText(mBundle.getString("Description"));
         }
