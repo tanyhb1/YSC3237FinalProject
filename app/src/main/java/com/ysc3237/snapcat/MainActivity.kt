@@ -51,6 +51,7 @@ import com.google.android.gms.location.LocationServices
 /**
  * Main activity that acts as a controller for our app's functionality.
  * Loads our photos from the server on the feed, and provides photo-taking functionality together with interaction with our server.
+ *
  * @author Bryan Tan, Haroun Chahed, Hebe Hilhorst
  * @since 1.0
  */
@@ -130,6 +131,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * Generates dummy coordinates for testing.
      * @see: loadDummyData
+     * @return A random LatLng pair within the minimum Singapore-containing rectangle (some of this is in Malaysia)
      */
     private fun getDummyLatLng(): LatLng {
         val latMax = 1.437690
@@ -144,6 +146,10 @@ class MainActivity : AppCompatActivity() {
         return LatLng(lat, lng)
     }
 
+    /**
+     * Adds a selection of dummy data to the CatData
+     * @return void
+     */
     private fun loadDummyData() {
         catList.add(CatData(
             "Rose", getString(com.ysc3237.snapcat.R.string.description_cat_rose),
@@ -209,6 +215,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Creates our list of cat photos accessed from the server. Provides interaction between our server and the camera.
+     * @param savedInstanceState
      */
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -278,6 +285,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Creates a temporary file to store an image
+     * @return File This is an empty file to store the new image in
+     */
     @Throws(IOException::class)
     private fun createImageFile(): File {
         // Create an image file name
@@ -291,12 +302,14 @@ class MainActivity : AppCompatActivity() {
             ".jpg", /* suffix */
             storageDir /* directory */
         ).apply {
-            mCurrentPhotoPath = absolutePath;
+            mCurrentPhotoPath = absolutePath
         }
     }
 
+    /**
+     * Take a
+     */
     private fun takePicture() {
-        val REQUEST_IMAGE_CAPTURE = 1
         val REQUEST_TAKE_PHOTO = 1
 
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -327,7 +340,14 @@ class MainActivity : AppCompatActivity() {
 
 
     // TODO: Let user add caption
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /**
+     * Handle a photo once taken: get location and send to server
+     * @param requestCode
+     * @param resultCode
+     * @param data The photo from the takePicture() intent call
+     * @return Unit
+     */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) : Unit {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
             var bitmap: Bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
@@ -338,19 +358,15 @@ class MainActivity : AppCompatActivity() {
                 init {
                     execute()
                 }
-
                 override fun doInBackground(vararg params: Void?): Void? {
                     handler()
                     return null
                 }
             }
 
-
-
             doAsync {
                 Log.d("SNAPCAT","HELLO WORLD")
                 val url: String = "http://hebehh.pythonanywhere.com/upload"
-//                var url: String = "http://b7bf48c8.ngrok.io/upload"
                 val imageFile = File(mCurrentPhotoPath)
                 //TODO: Compress file
 
@@ -394,20 +410,27 @@ class MainActivity : AppCompatActivity() {
                                     }
                                 })
                             Log.d("SNAPCAT", "Uploaded")
-                            //TODO: Inform user of success
+
+                            val text = "Successfully Uploaded!"
+                            val duration = Toast.LENGTH_LONG
+                            val toast = Toast.makeText(applicationContext, text, duration)
+                            toast.show()
                         }
                     }
                 // Uploading image etc:
                 Log.d("SNAPCAT", "Uploading file - "+mCurrentPhotoPath)
-
             }
         }
     }
 
-    // Check we have all necessary permissions
-    // WARNING: if you need a permission, you have to add it manually. To this and to request permission
+
     // TODO: change to have a list of necessary permissions (maybe get direct from manifest? should be a way)
     //  and then map from that to check and request automatically so don't need to do manual
+    /**
+     * Checks whether the app has READ_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions
+     * WARNING: if you need a permission, you have to add it manually. To this and to request permission
+     * @return Boolean
+     */
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun checkPermission(): Boolean {
         return (ContextCompat.checkSelfPermission(this, CAMERA) ==
@@ -421,27 +444,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
+    /**
+     * Requests READ_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions.
+     * @return Unit
+     */
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE, CAMERA, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION), PERMISSION_REQUEST_CODE)
+        ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE,
+            CAMERA, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION), PERMISSION_REQUEST_CODE)
     }
-
-    @SuppressLint("SimpleDateFormat")
-    @Throws(IOException::class)
-    private fun createFile(): File {
-        // Create an image file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
-        ).apply {
-            // Save a file: path for use with ACTION_VIEW intents
-            mCurrentPhotoPath = absolutePath
-        }
-    }
-
-
 
 }
