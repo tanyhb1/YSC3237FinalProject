@@ -28,9 +28,21 @@ import android.graphics.Canvas
 import com.ysc3237.snapcat.MainActivity
 
 
+/**
+ * Class for home fragment.
+ * Displays singapore map with clickable markers of cat photos.
+ * When clicked, markers display caption.
+ * Displays user location.
+ */
+
 class HomeFragment : Fragment() {
     private var mMapView: MapView? = null
     private var googleMap: GoogleMap? = null
+    /**
+     * Initializes map.
+     * zooms and centers it at Singapore.
+     * creates clickable markers for cats.
+     */
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -97,6 +109,10 @@ class HomeFragment : Fragment() {
         mMapView!!.onLowMemory()
     }
 
+    /**
+     * Creates a bitmap descriptor from vector.
+     * Used to make icons from cat photo.
+     */
     private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor {
         val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)
         vectorDrawable!!.setBounds(

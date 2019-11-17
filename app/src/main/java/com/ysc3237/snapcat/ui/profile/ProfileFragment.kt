@@ -15,6 +15,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ysc3237.snapcat.R
 
+/**
+ * Class for fragment of profile
+ * for now this class is a place holder with demo data until we get user info from database
+ */
+
 class ProfileFragment : Fragment(){
 
     override fun onCreateView(

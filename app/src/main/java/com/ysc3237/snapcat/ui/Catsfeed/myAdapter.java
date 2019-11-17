@@ -15,16 +15,16 @@ import com.ysc3237.snapcat.R;
 
 import java.util.List;
 
-/**
- * A group of *members*.
- *
- * This class has no useful logic; it's just a documentation example.
- * @constructor Creates an empty group.
- */
 public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
 
     private Context mContext;
     private List< CatData > mCatList;
+
+    /**
+     * this constructor will be used to pass data from MainActivity.java to this adapter.
+     * @param mContext
+     * @param mCatList
+     */
 
     myAdapter(Context mContext, List< CatData > mCatList) {
         this.mContext = mContext;
@@ -37,6 +37,12 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
         return new CatViewHolder(mView);
     }
 
+    /**
+     * click function so that when we tap on any of the cat images, we will move to another page which shows you the picture and a description.
+     * @param holder
+     * @param position
+     */
+
     @Override
     public void onBindViewHolder(final CatViewHolder holder, int position) {
         if(mCatList.get(position).getCatBitmap() != null)
@@ -45,6 +51,10 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
             holder.mImage.setImageResource(mCatList.get(position).getCatImage());
         holder.mTitle.setText(mCatList.get(position).getCatName());
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
+            /**
+             * use Android Intent to pass the image, title and description to DetailActivity.java class.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
@@ -59,6 +69,10 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
 
     }
 
+    /**
+     * counts number of cats.
+     * @return size of cat list.
+     */
     @Override
     public int getItemCount() {
         return mCatList.size();
@@ -71,6 +85,10 @@ class CatViewHolder extends RecyclerView.ViewHolder {
     TextView mTitle;
     CardView mCardView;
 
+    /**
+     * declare and initialize Android ImageView and TextView.
+     * @param itemView
+     */
 
     CatViewHolder(View itemView) {
         super(itemView);

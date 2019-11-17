@@ -54,6 +54,7 @@ import com.google.android.gms.location.LocationServices
  * @author Bryan Tan, Haroun Chahed, Hebe Hilhorst
  * @since 1.0
  */
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Initialize our catList
+     * Initialize our catList.
      */
     fun initCats() {
         if(!catListLoaded)
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Load cats
+     * Load cats.
      */
     fun loadCats() {
         catList.clear()

@@ -11,12 +11,14 @@ import android.R
 import com.google.android.gms.maps.model.LatLng
 
 /**
- * A group of *members*.
- *
- * This class has no useful logic; it's just a documentation example.
- *
- * @constructor Creates an empty group.
+ * Fills the Catsfeed fragment with cardviews of catphotos along with their names.
+ * Places each of the cardview in a recycler view and uses a grid layout manager.
+ * Initializes list of dummy cat data (photos - names - descriptions).
+ * Declares and initialize Recyclerview and the actual data to be displayed in Android Gridlayout.
+ * @see myAdapter
+ * @see CatViewHolder
  */
+
 class CatsfeedFragment : Fragment() {
 
     companion object {
@@ -42,7 +44,6 @@ class CatsfeedFragment : Fragment() {
         MainActivity.instance.initCats();
 
         myAdapter1 = myAdapter(context, MainActivity.catList)
-//        MyAdapter(Context mContext, List< CatData > mCatList) {
         mRecyclerView.adapter = myAdapter1
 
         return root
