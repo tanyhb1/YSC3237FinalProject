@@ -18,11 +18,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Environment
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -353,8 +356,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) : Unit {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
+            // Get and compress images
             val imageFile = File(mCurrentPhotoPath)
-
             var bitmap : Bitmap = BitmapFactory.Options().run {
                 inJustDecodeBounds = true
                 BitmapFactory.decodeFile(mCurrentPhotoPath, this)
@@ -372,14 +375,9 @@ class MainActivity : AppCompatActivity() {
             stream.flush()
             stream.close()
 
-
-
-            Log.d("SNAPCAT", "Bitmap height is: " + bitmap.height.toString())
             var capt = "This is a cat."
             var lati = "0"
             var longi = "0"
-
-            Log.d("SNAPCAT", "File loaded.");
 
             class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
                 init {
@@ -444,6 +442,9 @@ class MainActivity : AppCompatActivity() {
                                 val text = "Successfully Uploaded!"
                                 val duration = Toast.LENGTH_LONG
                                 val toast = Toast.makeText(applicationContext, text, duration)
+                                toast.setGravity(Gravity.CENTER, 0, 0)
+                                val view = toast.getView()
+                                view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
                                 toast.show()
                             }
                             // Let them cancel
