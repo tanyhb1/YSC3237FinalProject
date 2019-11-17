@@ -2,6 +2,9 @@ package com.ysc3237.snapcat.ui.Catsfeed;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,13 +56,18 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
      */
     @Override
     public void onBindViewHolder(final CatViewHolder holder, int position) {
+        CatData cat = mCatList.get(position);
+        int cat_idx = cat.getCatImage();
 
-        if(mCatList.get(position).getCatBitmap() != null)
-            holder.mImage.setImageBitmap(mCatList.get(position).getCatBitmap());
+        if(cat.getCatBitmap() != null)
+            holder.mImage.setImageBitmap(cat.getCatBitmap());
         else
-            holder.mImage.setImageResource(mCatList.get(position).getCatImage());
-        holder.mTitle.setText(mCatList.get(position).getCatName());
+            holder.mImage.setImageResource(cat_idx);
+
+        holder.mTitle.setText(cat.getCatName());
+
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
+
             /**
              * use Android Intent to pass the image, title and description to DetailActivity.java class.
              * @param view
@@ -67,15 +75,23 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
-                mIntent.putExtra("Title", mCatList.get(holder.getAdapterPosition()).getCatName());
-                mIntent.putExtra("Description", mCatList.get(holder.getAdapterPosition()).getCatDescription());
+                Bundle extras = mIntent.getExtras();
+                CatData cat = mCatList.get(holder.getAdapterPosition());
 
-                mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatImage());
+                mIntent.putExtra("Title", cat.getCatName());
+                mIntent.putExtra("Description", cat.getCatDescription());
 
-//                if(mCatList.get(position).getCatBitmap() != null)
-//                    mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatBitmap());
-//                else
-//                    mIntent.putExtra("Image", mCatList.get(holder.getAdapterPosition()).getCatImage());
+//                mIntent.putExtra("Image", cat.getCatImage());
+
+                Bitmap catB = cat.getCatBitmap() ;
+                if(catB != null) {
+                    mIntent.putExtra("Image", -1);
+                    mIntent.putExtra("Bitmap", catB);
+
+//                    extras.putParcelable("bitmap", catB);
+                }
+                else
+                    mIntent.putExtra("Image", cat.getCatImage());
 
                 mContext.startActivity(mIntent);
 

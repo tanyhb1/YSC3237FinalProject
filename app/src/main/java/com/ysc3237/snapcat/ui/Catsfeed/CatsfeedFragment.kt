@@ -1,4 +1,5 @@
 package com.ysc3237.snapcat.ui.Catsfeed
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
