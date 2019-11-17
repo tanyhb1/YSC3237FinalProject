@@ -5,6 +5,7 @@ import android.Manifest.permission.CAMERA
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,7 @@ import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -329,6 +331,9 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
             var bitmap: Bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath)
+            var capt = "This is a cat."
+            var lati = "0"
+            var longi = "0"
 
             Log.d("SNAPCAT", "File loaded.");
 
@@ -343,7 +348,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             doAsync {
-                Log.d("SNAPCAT","HELLO WORLD")
                 val url: String = "http://hebehh.pythonanywhere.com/upload"
                 val imageFile = File(mCurrentPhotoPath)
                 //TODO: Compress file
@@ -356,47 +360,54 @@ class MainActivity : AppCompatActivity() {
 
                             // Get useful location data
                             val location = task.result
-                            val lati = location.latitude
-                            val longi = location.longitude
+                            lati = location.latitude.toString()
+                            longi = location.longitude.toString()
                             Log.d(
                                 "SNAPCAT",
-                                "long: " + longi.toString() + " lat: " + lati.toString()
+                                "long: " + longi + " lat: " + lati
                             )
 
-                            // Caption inbuilt for now
-                            val capt = "Have a pretty cat."
+                            val builder = AlertDialog.Builder(this)
+                            val inflater = layoutInflater
+                            builder.setTitle("What's your caption?")
+                            val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
+                            val editText  = dialogLayout.findViewById<EditText>(R.id.editText)
+                            builder.setView(dialogLayout)
+                            builder.setPositiveButton("Done") {
+                                    dialogInterface, i ->
+                                capt =  editText.text.toString()
 
-                            // Upload with caption, latitude, and longitude
-                            AndroidNetworking.upload(url)
-                                .addMultipartParameter("caption", capt)
-                                .addMultipartParameter("latitude", lati.toString())
-                                .addMultipartParameter("longitude", longi.toString())
-                                .addMultipartFile("image",imageFile)
-                                .build()
-                                .setUploadProgressListener(object: UploadProgressListener {
-                                    override fun onProgress(bytesUploaded: Long, totalBytes: Long) {
-                                         Log.d("SNAPCAT", "Uploading... "+bytesUploaded+" of "+totalBytes+" bytes");
-                                    }
-                                })
-                                .getAsJSONObject(object: JSONObjectRequestListener {
-                                    override fun onResponse(response: JSONObject) {
-                                        Log.d("SNAPCAT", "Got response "+response)
-                                    }
-                                    override fun onError(error: ANError) {
-                                        Log.d("SNAPCAT", "Got error "+error)
+                                // Upload with caption, latitude, and longitude
+                                AndroidNetworking.upload(url)
+                                    .addMultipartParameter("caption", capt)
+                                    .addMultipartParameter("latitude", lati)
+                                    .addMultipartParameter("longitude", longi)
+                                    .addMultipartFile("image",imageFile)
+                                    .build()
+                                    .setUploadProgressListener(object: UploadProgressListener {
+                                        override fun onProgress(bytesUploaded: Long, totalBytes: Long) {
+                                            Log.d("SNAPCAT", "Uploading... " + bytesUploaded + " of " + totalBytes + " bytes");
+                                        }
+                                    })
+                                    .getAsJSONObject(object: JSONObjectRequestListener {
+                                        override fun onResponse(response: JSONObject) {
+                                            Log.d("SNAPCAT", "Got response " + response)
+                                        }
+                                        override fun onError(error: ANError) {
+                                            Log.d("SNAPCAT", "Got error " + error)
+                                        }
+                                    })
+                                Log.d("SNAPCAT", "Uploaded")
 
-                                    }
-                                })
-                            Log.d("SNAPCAT", "Uploaded")
+                                val text = "Successfully Uploaded!"
+                                val duration = Toast.LENGTH_LONG
+                                val toast = Toast.makeText(applicationContext, text, duration)
+                                toast.show()
+                            }
+                            builder.show()
 
-                            val text = "Successfully Uploaded!"
-                            val duration = Toast.LENGTH_LONG
-                            val toast = Toast.makeText(applicationContext, text, duration)
-                            toast.show()
                         }
                     }
-                // Uploading image etc:
-                Log.d("SNAPCAT", "Uploading file - "+mCurrentPhotoPath)
             }
         }
     }
