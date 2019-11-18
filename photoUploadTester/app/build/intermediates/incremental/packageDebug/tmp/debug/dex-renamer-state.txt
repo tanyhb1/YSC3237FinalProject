@@ -1,4 +1,0 @@
-#Fri Nov 08 11:41:49 SGT 2019
-base.0=/Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/fpsupports/AndroidFlask/Part 1/AndroidClient/app/build/intermediates/dex/debug/mergeDexDebug/out
-path.0=classes.dex
-renamed.0=classes.dex
