@@ -298,7 +298,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Take a
+     * Take a picture with the appropriate intent and then pass to handler.
      */
     private fun takePicture() {
         val REQUEST_TAKE_PHOTO = 1
@@ -328,6 +328,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Compresses a bitmap to be within reqWidth and reqHeight
+     * @param options Bitmap options
+     * @param reqWidth Maximum width
+     * @param reqHeight Maximum Height
+     * @return Int
+     */
     fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
         // Raw height and width of image
         val (height: Int, width: Int) = options.run { outHeight to outWidth }
