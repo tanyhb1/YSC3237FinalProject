@@ -75,20 +75,16 @@ public class myAdapter extends RecyclerView.Adapter<CatViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
-                Bundle extras = mIntent.getExtras();
                 CatData cat = mCatList.get(holder.getAdapterPosition());
 
                 mIntent.putExtra("Title", cat.getCatName());
                 mIntent.putExtra("Description", cat.getCatDescription());
 
-//                mIntent.putExtra("Image", cat.getCatImage());
 
                 Bitmap catB = cat.getCatBitmap() ;
                 if(catB != null) {
                     mIntent.putExtra("Image", -1);
                     mIntent.putExtra("Bitmap", catB);
-
-//                    extras.putParcelable("bitmap", catB);
                 }
                 else
                     mIntent.putExtra("Image", cat.getCatImage());

@@ -15,17 +15,15 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import android.graphics.Bitmap
 import androidx.core.content.ContextCompat
 import android.graphics.drawable.Drawable
-import com.google.android.gms.maps.model.BitmapDescriptor
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
+import com.google.android.gms.maps.model.*
 import com.ysc3237.snapcat.MainActivity
+import com.ysc3237.snapcat.ui.Catsfeed.DetailActivity
 
 
 /**
@@ -60,6 +58,9 @@ class HomeFragment : Fragment() {
             e.printStackTrace()
         }
 
+
+
+
         mMapView!!.getMapAsync { mMap ->
             googleMap = mMap
             MainActivity.catList.forEach {
@@ -67,8 +68,28 @@ class HomeFragment : Fragment() {
                     .position(it.catLocation)
                     .title(it.catName)
                     .snippet(it.catDescription)
-                    .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)));
+                    .icon(bitmapDescriptorFromVector(context!!, R.drawable.cat_map_icon_24dp)))
             }
+
+            mMap!!.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener {
+                override fun onMarkerClick(marker: Marker): Boolean {
+                    val mIntent = Intent(context!!, DetailActivity::class.java)
+                    val cat = MainActivity.catList.filter { cat -> cat.catName == marker.title }.get(0)
+
+
+                    mIntent.putExtra("Title", cat.catName)
+                    mIntent.putExtra("Description", cat.catDescription)
+                    val catB = cat.catBitmap
+                    if (catB != null) {
+                        mIntent.putExtra("Image", -1)
+                        mIntent.putExtra("Bitmap", catB)
+                    } else
+                        mIntent.putExtra("Image", cat.catImage)
+
+                    context!!.startActivity(mIntent);
+                    return true
+                }
+            })
 
             // For zooming functionality
             val cameraPosition = CameraPosition.Builder().target(LatLng(1.3048, 103.8318)).zoom(10f).build() // camera centered at singapore for now - must change to user location
