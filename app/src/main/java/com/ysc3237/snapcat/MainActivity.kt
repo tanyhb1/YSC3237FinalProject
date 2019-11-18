@@ -420,6 +420,11 @@ class MainActivity : AppCompatActivity() {
                                 capt =  editCaption.text.toString()
                                 name = editName.text.toString()
 
+                                // to make fake geographical data:
+                                val ll = getDummyLatLng()
+                                lati = ll.latitude.toString()
+                                longi = ll.longitude.toString()
+
                                 // Upload with caption, latitude, and longitude
                                 AndroidNetworking.upload(url)
                                     .addMultipartParameter("name", name)
