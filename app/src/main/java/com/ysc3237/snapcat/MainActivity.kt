@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                                     Log.d("SNAPCAT", "got bitmap for element "+i+" of size "+bitmap.width+" and "+bitmap.height)
 
                                     val newCat = CatData(
-                                        i.toString(),
+                                        cat.get("name") as String,
                                         cat.get("caption") as String,
                                         R.drawable.cat1,
                                         bitmap,
@@ -376,6 +376,7 @@ class MainActivity : AppCompatActivity() {
             stream.close()
 
             var capt = "This is a cat."
+            var name : String
             var lati = "0"
             var longi = "0"
 
@@ -411,14 +412,17 @@ class MainActivity : AppCompatActivity() {
                             val inflater = layoutInflater
                             builder.setTitle("What's your caption?")
                             val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
-                            val editText  = dialogLayout.findViewById<EditText>(R.id.editText)
+                            val editCaption  = dialogLayout.findViewById<EditText>(R.id.editCaption)
+                            val editName  = dialogLayout.findViewById<EditText>(R.id.editName)
                             builder.setView(dialogLayout)
                             builder.setPositiveButton("Done") {
                                     dialogInterface, i ->
-                                capt =  editText.text.toString()
+                                capt =  editCaption.text.toString()
+                                name = editName.text.toString()
 
                                 // Upload with caption, latitude, and longitude
                                 AndroidNetworking.upload(url)
+                                    .addMultipartParameter("name", name)
                                     .addMultipartParameter("caption", capt)
                                     .addMultipartParameter("latitude", lati)
                                     .addMultipartParameter("longitude", longi)

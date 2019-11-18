@@ -5,9 +5,14 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter the text here"/>
+        android:hint="What's the cat's name?"/>
+    <EditText
+        android:id="@+id/editCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a caption"/>
 
 </LinearLayout>
