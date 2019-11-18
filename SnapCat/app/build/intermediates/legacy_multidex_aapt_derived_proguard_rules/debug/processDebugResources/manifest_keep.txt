@@ -1,0 +1,4 @@
+# Referenced at /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/SnapCat/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:31
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/SnapCat/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:31
+-keep class androidx.multidex.MultiDexApplication { <init>(); }

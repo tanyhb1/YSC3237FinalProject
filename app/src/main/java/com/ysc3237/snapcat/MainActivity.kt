@@ -131,6 +131,13 @@ class MainActivity : AppCompatActivity() {
             })
 
         loadDummyData()
+        val text = "New Cats Added!"
+        val duration = Toast.LENGTH_LONG
+        val toast = Toast.makeText(applicationContext, text, duration)
+        toast.setGravity(Gravity.CENTER, 0, 30)
+        val view = toast.getView()
+        view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
+        toast.show()
         catListLoaded = true
     }
 
@@ -421,9 +428,9 @@ class MainActivity : AppCompatActivity() {
                                 name = editName.text.toString()
 
                                 // to make fake geographical data:
-                                val ll = getDummyLatLng()
-                                lati = ll.latitude.toString()
-                                longi = ll.longitude.toString()
+//                                val ll = getDummyLatLng()
+//                                lati = ll.latitude.toString()
+//                                longi = ll.longitude.toString()
 
                                 // Upload with caption, latitude, and longitude
                                 AndroidNetworking.upload(url)
@@ -441,6 +448,14 @@ class MainActivity : AppCompatActivity() {
                                     .getAsJSONObject(object: JSONObjectRequestListener {
                                         override fun onResponse(response: JSONObject) {
                                             Log.d("SNAPCAT", "Got response " + response)
+                                            val text = "Successfully Uploaded!"
+                                            val duration = Toast.LENGTH_LONG
+                                            val toast = Toast.makeText(applicationContext, text, duration)
+                                            toast.setGravity(Gravity.CENTER, 0, 0)
+                                            val view = toast.getView()
+                                            view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
+                                            toast.show()
+                                            loadCats()
                                         }
                                         override fun onError(error: ANError) {
                                             Log.d("SNAPCAT", "Got error " + error)
@@ -448,14 +463,6 @@ class MainActivity : AppCompatActivity() {
                                     })
                                 Log.d("SNAPCAT", "Uploaded")
 
-                                val text = "Successfully Uploaded!"
-                                val duration = Toast.LENGTH_LONG
-                                val toast = Toast.makeText(applicationContext, text, duration)
-                                toast.setGravity(Gravity.CENTER, 0, 0)
-                                val view = toast.getView()
-                                view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
-                                toast.show()
-                                loadCats()
                             }
                             // Let them cancel
                             builder.setNegativeButton(android.R.string.cancel) { dialog, p1 ->

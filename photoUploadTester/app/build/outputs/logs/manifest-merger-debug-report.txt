@@ -1,0 +1,164 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/hebe/.gradle/caches/transforms-2/files-2.1/87094fd242d59933861f9451d929640a/AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:17:1-30:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+	package
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:3:5-52
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:6:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:7:22-78
+application
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:9:5-26:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/hebe/.gradle/caches/transforms-2/files-2.1/87094fd242d59933861f9451d929640a/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/hebe/.gradle/caches/transforms-2/files-2.1/87094fd242d59933861f9451d929640a/AndroidManifest.xml:9:5-20
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:24:5-28:19
+	android:supportsRtl
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:12:9-41
+	android:roundIcon
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:13:9-54
+	android:icon
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:11:9-43
+	android:allowBackup
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:10:9-35
+	android:theme
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:15:9-40
+	android:usesCleartextTraffic
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:16:9-44
+activity#gad.heartbeat.androidflask.easyupload.MainActivity
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:19:9-25:20
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:19:19-84
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml:23:27-74
+uses-sdk
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/hebe/.gradle/caches/transforms-2/files-2.1/87094fd242d59933861f9451d929640a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/hebe/.gradle/caches/transforms-2/files-2.1/87094fd242d59933861f9451d929640a/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		ADDED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/hebe/Dropbox/Yale-NUS/Yr4/softeng/YSC3237FinalProject/photoUploadTester/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/cdff6b66041f8e6c1580d3b395328cc3/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/b8e6787c8d27244db090c6ade1a21f04/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/e6c5d5e62ece8f90b5c7a298fe8581c9/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/3497ada99967b0437129252e1a586d35/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/ef1bbc15527d3e3f33c44e15684d6a46/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/4434ac1a9018adc47d51c77d138611ca/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/312c4613ebcbcd8e9eda5e589606f39c/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2ca4655af4cd84e02cb6a2f34c6245ce/AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.1.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/fb6fa1a9b357edef496dc2f7589038cf/AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/hebe/.gradle/caches/transforms-2/files-2.1/2b7e6821b0ec8a43b149e401487eb4ea/AndroidManifest.xml:26:13-58
