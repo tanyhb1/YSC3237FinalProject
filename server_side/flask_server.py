@@ -6,31 +6,25 @@ import json
 from tinydb import TinyDB, Query
 import calendar
 
-app = flask.Flask(__name__, static_url_path="")
+app = flask.Flask(__name__)
 
 log_file = open("stuff.txt","a")
 
 db = TinyDB('db.json')
 
-# Check server is running
-@app.route('/test', methods = ['GET', 'POST'])
-def test():
-    return "Successful connection"
-
-# Check file can be received
-@app.route("/print_filename", methods=['POST','PUT'])
-def print_filename():
-    file = flask.request.files['file']
-    filename=werkzeug.utils.secure_filename(file.filename)
-    return filename
-
 @app.route('/list_cats', methods = ['GET'])
 def list_cats():
     return json.dumps(db.all()), 200, {'ContentType':'application/json'}
 
-# @app.route('/Images/<path:path>', methods = ['GET'])
-# def get_image(path):
-#     return flask.send_from_directory('Images', path)
+@app.route('/list_recent_cats', methods = ['GET'])
+def list_recent_cats():
+    Cats = Query()
+    hours = 6
+    if flask.request.args.get('hours'):
+        hours = int(flask.request.args.get('hours'))
+    yesterday = calendar.timegm(time.gmtime()) - (60 * 60 * hours)
+    qr = db.search(Cats.uploadedAt >= yesterday)
+    return json.dumps(qr), 200, {'ContentType':'application/json'}
 
 # Upload image
 @app.route('/upload', methods = ['GET', 'POST'])
@@ -50,7 +44,7 @@ def handle_request():
 
     filePath = None
     fileName = None
-    catName="MyCat"
+    catName=flask.request.form['name']
     caption=flask.request.form['caption']
     lat=float(flask.request.form['latitude'])
     lon=float(flask.request.form['longitude'])
@@ -73,7 +67,6 @@ def handle_request():
         imagefile.save(filePath)
         image_num = image_num + 1
         break
-
     db.insert({
         "filePath": filePath,
         "name": catName,
