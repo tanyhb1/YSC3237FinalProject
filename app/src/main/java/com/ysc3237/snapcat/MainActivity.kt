@@ -455,6 +455,7 @@ class MainActivity : AppCompatActivity() {
                                 val view = toast.getView()
                                 view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
                                 toast.show()
+                                loadCats()
                             }
                             // Let them cancel
                             builder.setNegativeButton(android.R.string.cancel) { dialog, p1 ->

@@ -18,6 +18,7 @@ public class DetailActivity extends AppCompatActivity {
 
     ImageView mCat;
     TextView mDescription;
+    TextView mName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,12 @@ public class DetailActivity extends AppCompatActivity {
 
         mCat = findViewById(R.id.ivImage);
         mDescription = findViewById(R.id.tvDescription);
+        mName = findViewById(R.id.tvName);
 
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
             mDescription.setText(mBundle.getString("Description"));
+            mName.setText(mBundle.getString("Title"));
 
             int cat_key = mBundle.getInt("Image");
             if (cat_key < 0 ) {
